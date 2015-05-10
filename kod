@@ -1,0 +1,1340 @@
+using System;
+using Microsoft;
+
+namespace oandx
+{
+	class game
+	{
+		int[] ground = { 0,0,0,
+		             	 0,0,0,
+			             0,0,0 };
+		string[] fields = new string[9];
+		int clock;
+		int player;
+
+		void wa(){ // G1, G2, G3 = wa
+			switch (ground [0]) {
+			case 0:
+				switch (ground [1]) {
+				case 0:
+					switch (ground [2]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 2:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [2]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 2:                         // 0 1 1          PUNKT KRYTYCZNY G1
+
+						if (clock == 0) {
+							clock++;
+							ground [0] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 2:
+
+				switch (ground [1]) {
+				case 0:
+					switch (ground [2]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 2:                        // 1 0 1          PUNKT KRYTYCZNY G2
+
+						if (clock == 0) {
+							clock++;
+							ground [1] = 2;
+						}
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [2]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G3
+						if (clock == 0) {
+							clock++;
+							ground [2] = 2;
+						}
+						break;
+					case 2:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+
+		void wb(){ // G4, G5, G6 = wb
+			switch (ground [3]) {
+			case 0:
+				switch (ground [4]) {
+				case 0:
+					switch (ground [5]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 2:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [5]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 2:                         // 0 1 1          PUNKT KRYTYCZNY G1
+
+						if (clock == 0) {
+							clock++;
+							ground [3] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 2:
+
+				switch (ground [4]) {
+				case 0:
+					switch (ground [5]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 2:                        // 1 0 1          PUNKT KRYTYCZNY G2
+
+						if (clock == 0) {
+							clock++;
+							ground [4] = 2;
+						}
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [5]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G3
+						if (clock == 0) {
+							clock++;
+							ground [5] = 2;
+						}
+						break;
+					case 2:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+
+		void wc(){ // G7, G8, G9 = wc
+			switch (ground [6]) {
+			case 0:
+				switch (ground [7]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 2:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [8]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 2:                         // 0 1 1          PUNKT KRYTYCZNY G1
+
+						if (clock == 0) {
+							clock++;
+							ground [6] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 2:
+
+				switch (ground [7]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 2:                        // 1 0 1          PUNKT KRYTYCZNY G2
+
+						if (clock == 0) {
+							clock++;
+							ground [7] = 2;
+						}
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [8]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G3
+						if (clock == 0) {
+							clock++;
+							ground [8] = 2;
+						}
+						break;
+					case 2:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void wd(){ // G1, G4, G7 = wd
+			switch (ground [0]) {
+			case 0:
+				switch (ground [3]) {
+				case 0:
+					switch (ground [6]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 2:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [0]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 2:                         // 0 1 1          PUNKT KRYTYCZNY G1
+
+						if (clock == 0) {
+							clock++;
+							ground [0] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 2:
+
+				switch (ground [3]) {
+				case 0:
+					switch (ground [6]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 2:                        // 1 0 1          PUNKT KRYTYCZNY G4
+
+						if (clock == 0) {
+							clock++;
+							ground [3] = 2;
+						}
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [6]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G7
+						if (clock == 0) {
+							clock++;
+							ground [6] = 2;
+						}
+						break;
+					case 2:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void we(){ // G2, G5, G8 = we
+			switch (ground [1]) {
+			case 0:
+				switch (ground [4]) {
+				case 0:
+					switch (ground [7]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 2:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [7]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 2:                         // 0 1 1          PUNKT KRYTYCZNY G2
+
+						if (clock == 0) {
+							clock++;
+							ground [1] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 2:
+
+				switch (ground [4]) {
+				case 0:
+					switch (ground [7]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 2:                        // 1 0 1          PUNKT KRYTYCZNY G5
+
+						if (clock == 0) {
+							clock++;
+							ground [4] = 2;
+						}
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [7]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G8
+						if (clock == 0) {
+							clock++;
+							ground [7] = 2;
+						}
+						break;
+					case 2:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void wf(){ // G3, G6, G9 = wf
+			switch (ground [2]) {
+			case 0:
+				switch (ground [5]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 2:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [8]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 2:                         // 0 1 1          PUNKT KRYTYCZNY G1
+
+						if (clock == 0) {
+							clock++;
+							ground [2] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 2:
+
+				switch (ground [5]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 2:                        // 1 0 1          PUNKT KRYTYCZNY G2
+
+						if (clock == 0) {
+							clock++;
+							ground [5] = 2;
+						}
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [8]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G3
+						if (clock == 0) {
+							clock++;
+							ground [8] = 2;
+						}
+						break;
+					case 2:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void wg(){ // G1, G5, G9 = wg
+			switch (ground [0]) {
+			case 0:
+				switch (ground [4]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 2:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [8]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 2:                         // 0 1 1          PUNKT KRYTYCZNY G1
+
+						if (clock == 0) {
+							clock++;
+							ground [0] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 2:
+
+				switch (ground [4]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 2:                        // 1 0 1          PUNKT KRYTYCZNY G5
+
+						if (clock == 0) {
+							clock++;
+							ground [4] = 2;
+						}
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [8]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G9
+						if (clock == 0) {
+							clock++;
+							ground [8] = 2;
+						}
+						break;
+					case 2:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void wh(){ // G3, G5, G7 = wh
+			switch (ground [2]) {
+			case 0:
+				switch (ground [4]) {
+				case 0:
+					switch (ground [6]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 2:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [6]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 2:                         // 0 1 1          PUNKT KRYTYCZNY G3
+
+						if (clock == 0) {
+							clock++;
+							ground [2] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 2:
+
+				switch (ground [4]) {
+				case 0:
+					switch (ground [6]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 2:                        // 1 0 1          PUNKT KRYTYCZNY G5
+
+						if (clock == 0) {
+							clock++;
+							ground [4] = 2;
+						}
+						break;
+					}
+					break;
+				case 2:
+
+					switch (ground [6]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G7
+						if (clock == 0) {
+							clock++;
+							ground [6] = 2;
+						}
+						break;
+					case 2:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+
+		void la(){ // G1, G2, G3 = la
+			switch (ground [0]) {
+			case 0:
+				switch (ground [1]) {
+				case 0:
+					switch (ground [2]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 1:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [2]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 1:                         // 0 1 1          PUNKT KRYTYCZNY G1
+					
+						if (clock == 0) {
+							clock++;
+							ground [0] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 1:
+			
+				switch (ground [1]) {
+				case 0:
+					switch (ground [2]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 1:                        // 1 0 1          PUNKT KRYTYCZNY G2
+					
+						if (clock == 0) {
+							clock++;
+							ground [1] = 2;
+						}
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [2]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G3
+						if (clock == 0) {
+							clock++;
+							ground [2] = 2;
+						}
+						break;
+					case 1:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+		
+		}
+
+		void lb(){ // G4, G5, G6 = lb
+			switch (ground [3]) {
+			case 0:
+				switch (ground [4]) {
+				case 0:
+					switch (ground [5]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 1:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [5]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 1:                         // 0 1 1          PUNKT KRYTYCZNY G1
+					
+						if (clock == 0) {
+							clock++;
+							ground [3] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 1:
+			
+				switch (ground [4]) {
+				case 0:
+					switch (ground [5]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 1:                        // 1 0 1          PUNKT KRYTYCZNY G2
+					
+						if (clock == 0) {
+							clock++;
+							ground [4] = 2;
+						}
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [5]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G3
+						if (clock == 0) {
+							clock++;
+							ground [5] = 2;
+						}
+						break;
+					case 1:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+
+		void lc(){ // G7, G8, G9 = lc
+			switch (ground [6]) {
+			case 0:
+				switch (ground [7]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 1:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [8]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 1:                         // 0 1 1          PUNKT KRYTYCZNY G1
+					
+						if (clock == 0) {
+							clock++;
+							ground [6] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 1:
+			
+				switch (ground [7]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 1:                        // 1 0 1          PUNKT KRYTYCZNY G2
+					
+						if (clock == 0) {
+							clock++;
+							ground [7] = 2;
+						}
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [8]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G3
+						if (clock == 0) {
+							clock++;
+							ground [8] = 2;
+						}
+						break;
+					case 1:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void ld(){ // G1, G4, G7 = ld
+			switch (ground [0]) {
+			case 0:
+				switch (ground [3]) {
+				case 0:
+					switch (ground [6]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 1:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [0]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 1:                         // 0 1 1          PUNKT KRYTYCZNY G1
+					
+						if (clock == 0) {
+							clock++;
+							ground [0] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 1:
+			
+				switch (ground [3]) {
+				case 0:
+					switch (ground [6]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 1:                        // 1 0 1          PUNKT KRYTYCZNY G4
+					
+						if (clock == 0) {
+							clock++;
+							ground [3] = 2;
+						}
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [6]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G7
+						if (clock == 0) {
+							clock++;
+							ground [6] = 2;
+						}
+						break;
+					case 1:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void le(){ // G2, G5, G8 = le
+			switch (ground [1]) {
+			case 0:
+				switch (ground [4]) {
+				case 0:
+					switch (ground [7]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 1:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [7]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 1:                         // 0 1 1          PUNKT KRYTYCZNY G2
+					
+						if (clock == 0) {
+							clock++;
+							ground [1] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 1:
+			
+				switch (ground [4]) {
+				case 0:
+					switch (ground [7]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 1:                        // 1 0 1          PUNKT KRYTYCZNY G5
+					
+						if (clock == 0) {
+							clock++;
+							ground [4] = 2;
+						}
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [7]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G8
+						if (clock == 0) {
+							clock++;
+							ground [7] = 2;
+						}
+						break;
+					case 1:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void lf(){ // G3, G6, G9 = lf
+			switch (ground [2]) {
+			case 0:
+				switch (ground [5]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 1:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [8]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 1:                         // 0 1 1          PUNKT KRYTYCZNY G1
+					
+						if (clock == 0) {
+							clock++;
+							ground [2] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 1:
+			
+				switch (ground [5]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 1:                        // 1 0 1          PUNKT KRYTYCZNY G2
+					
+						if (clock == 0) {
+							clock++;
+							ground [5] = 2;
+						}
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [8]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G3
+						if (clock == 0) {
+							clock++;
+							ground [8] = 2;
+						}
+						break;
+					case 1:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void lg(){ // G1, G5, G9 = lg
+			switch (ground [0]) {
+			case 0:
+				switch (ground [4]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 1:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [8]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 1:                         // 0 1 1          PUNKT KRYTYCZNY G1
+					
+						if (clock == 0) {
+							clock++;
+							ground [0] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 1:
+			
+				switch (ground [4]) {
+				case 0:
+					switch (ground [8]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 1:                        // 1 0 1          PUNKT KRYTYCZNY G5
+					
+						if (clock == 0) {
+							clock++;
+							ground [4] = 2;
+						}
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [8]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G9
+						if (clock == 0) {
+							clock++;
+							ground [8] = 2;
+						}
+						break;
+					case 1:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+		void lh(){ // G3, G5, G7 = lh
+			switch (ground [2]) {
+			case 0:
+				switch (ground [4]) {
+				case 0:
+					switch (ground [6]) {
+					case 0:                     // 0 0 0
+
+
+						break;
+					case 1:                     // 0 0 1 
+
+
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [6]) {
+					case 0:                         // 0 1 0                   
+
+						break;
+					case 1:                         // 0 1 1          PUNKT KRYTYCZNY G3
+					
+						if (clock == 0) {
+							clock++;
+							ground [2] = 2;
+						}
+						break;
+					}
+
+					break;
+				}
+				break;
+			case 1:
+			
+				switch (ground [4]) {
+				case 0:
+					switch (ground [6]) {
+					case 0:                             // 1 0 0
+
+
+						break;
+					case 1:                        // 1 0 1          PUNKT KRYTYCZNY G5
+					
+						if (clock == 0) {
+							clock++;
+							ground [4] = 2;
+						}
+						break;
+					}
+					break;
+				case 1:
+				
+					switch (ground [6]) {
+					case 0:                               // 1 1 0        PUNKT KRYTYCZNY G7
+						if (clock == 0) {
+							clock++;
+							ground [6] = 2;
+						}
+						break;
+					case 1:                              // 1 1 1 
+
+
+						break;
+					}
+					break;
+				}
+				break;
+			}
+
+		}
+
+		void read(){
+			string input = Console.ReadLine ();
+			player = Convert.ToInt32 (input);
+			switch (player) {
+			case 1:
+				ground [6] = 1;
+				break;
+			case 2:
+				ground [7] = 1;
+				break;
+			case 3:
+				ground [8] = 1;
+				break;
+			case 4:
+				ground [3] = 1;
+				break;
+			case 5:
+				ground [4] = 1;
+				break;
+			case 6:
+				ground [5] = 1;
+				break;
+			case 7:
+				ground [0] = 1;
+				break;
+			case 8:
+				ground [1] = 1;
+				break;
+			case 9:
+				ground [2] = 1;
+				break;
+			}
+
+		}
+		void restart(){
+			for (int i = 0; i < ground.Length; i++) {
+				ground [i] = 0;
+				fields [i] = " ";
+			}
+
+		}
+		void move (){
+			Random move = new Random ();
+			r:
+			int a = move.Next(ground.Length);
+			if (ground[a] == 1 | ground[a] == 2) {
+				if (ground [0] == 0 | ground [1] == 0 | ground [2] == 0 | ground [3] == 0 | ground [4] == 0 | ground [5] == 0
+				    | ground [6] == 0 | ground [7] == 0 | ground [8] == 0) {
+					goto r;
+				}
+				restart ();
+			}
+			else {
+				if (clock == 0) {ground [a] = 2; clock++;}
+			}
+		}
+		void work(){
+			wa ();
+			wb ();
+			wc ();
+			wd ();
+			we ();
+			wf ();
+			wg ();
+			wh ();
+			la ();
+			lb ();
+			lc ();
+			ld ();
+			le ();
+			lf ();
+			lg ();
+			lh ();
+		}
+
+		void wygrana(){
+
+			if (ground [0] == 1 & ground [1] == 1 & ground [2] == 1) {
+				Console.WriteLine ("Wygrywa P1");
+			}
+			if (ground [3] == 1 & ground [4] == 1 & ground [5] == 1) {
+				Console.WriteLine ("Wygrywa P1");
+			}
+			if (ground [6] == 1 & ground [7] == 1 & ground [8] == 1) {
+				Console.WriteLine ("Wygrywa P1");
+			}
+			if (ground [0] == 1 & ground [3] == 1 & ground [6] == 1) {
+				Console.WriteLine ("Wygrywa P1");
+			}
+			if (ground [1] == 1 & ground [4] == 1 & ground [7] == 1) {
+				Console.WriteLine ("Wygrywa P1");
+			}
+			if (ground [2] == 1 & ground [5] == 1 & ground [8] == 1) {
+				Console.WriteLine ("Wygrywa P1");
+			}
+			if (ground [0] == 1 & ground [4] == 1 & ground [8] == 1) {
+				Console.WriteLine ("Wygrywa P1");
+			}
+			if (ground [2] == 1 & ground [4] == 1 & ground [6] == 1) {
+				Console.WriteLine ("Wygrywa P1");
+			}
+
+			if (ground [0] == 2 & ground [1] == 2 & ground [2] == 2) {
+				Console.WriteLine ("Wygrywa COM");
+			}
+			if (ground [3] == 2 & ground [4] == 2 & ground [5] == 2) {
+				Console.WriteLine ("Wygrywa COM");
+			}
+			if (ground [6] == 2 & ground [7] == 2 & ground [8] == 2) {
+				Console.WriteLine ("Wygrywa COM");
+			}
+			if (ground [0] == 2 & ground [3] == 2 & ground [6] == 2) {
+				Console.WriteLine ("Wygrywa COM");
+			}
+			if (ground [1] == 2 & ground [4] == 2 & ground [7] == 2) {
+				Console.WriteLine ("Wygrywa COM");
+			}
+			if (ground [2] == 2 & ground [5] == 2 & ground [8] == 2) {
+				Console.WriteLine ("Wygrywa COM");
+			}
+			if (ground [0] == 2 & ground [4] == 2 & ground [8] == 2) {
+				Console.WriteLine ("Wygrywa COM");
+			}
+			if (ground [2] == 2 & ground [4] == 2 & ground [6] == 2) {
+				Console.WriteLine ("Wygrywa COM");
+			}
+		}
+
+		void exec(){
+			for (int i = 0; i < ground.Length; i++) {
+				if (ground [i] == 1) {
+
+					fields [i] = "O";
+				}
+				else if(ground[i] == 2){
+					fields [i] = "X";
+				}
+				else{
+					fields[i] = " ";
+				}
+			
+			
+			}
+			Console.WriteLine (fields [0] + " | " + fields [1] + " | " + fields [2]);
+			Console.WriteLine ("--|---|--");
+			Console.WriteLine (fields [3] + " | " + fields [4] + " | " + fields [5]);
+			Console.WriteLine ("--|---|--");
+			Console.WriteLine (fields [6] + " | " + fields [7] + " | " + fields [8]);
+
+		}
+		public static void Main (string[] args)
+		{
+			game game1 = new game ();
+			start:
+			game1.clock = 0;
+			Console.Clear ();
+			game1.exec ();
+			game1.wygrana ();
+			Console.WriteLine ();
+			game1.read ();
+			game1.work ();
+			game1.move ();
+			goto start;
+
+	
+		}
+	}
+}
