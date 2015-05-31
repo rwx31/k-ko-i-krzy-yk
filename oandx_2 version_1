@@ -1,0 +1,342 @@
+using System;
+
+
+namespace oandx2
+{
+	class Game
+	{
+		int[] marks = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+		int[] score = {0, 0, 0};
+		int clock, timer,status, MDD, player; //MDD tryb gry / comp vs p1 v p1 vs p2
+		int mode = 0;
+
+		  void win (){
+			// deklaracja zmiennych pomocniczych 
+			int hlp = marks [0] + marks [1] + marks [2]; 
+			int hlp1 = marks [3] + marks [4] + marks [5]; 
+			int hlp2 = marks [6] + marks [7] + marks [8]; 
+			int hlp3 = marks [0] + marks [3] + marks [6]; 
+			int hlp4 = marks [1] + marks [4] + marks [7]; 
+			int hlp5 = marks [2] + marks [5] + marks [8]; 
+			int hlp6 = marks [0] + marks [4] + marks [8]; 
+			int hlp7 = marks [2] + marks [4] + marks [6]; 
+
+			// algorytm 
+			if ((marks [0] == 1 & hlp == 2) | (marks [1] == 1 & hlp == 2)) {  
+				marks [0] = 1;marks [1] = 1; marks [2] = 1; clock++;
+			} 
+			else if ((marks [3] == 1 & hlp1 == 2) | (marks [4] == 1 & hlp1 == 2)) {  
+				marks [3] = 1;marks [4] = 1; marks [5] = 1; clock++; 
+			} 
+			else if ((marks [6] == 1 & hlp2 == 2) | (marks [7] == 1 & hlp2 == 2)) {  
+				marks [6] = 1;marks [7] = 1; marks [8] = 1; clock++; 
+			} 
+			else if ((marks [0] == 1 & hlp3 == 2) | (marks [3] == 1 & hlp3 == 2)) {  
+				marks [0] = 1;marks [3] = 1; marks [6] = 1; clock++; 
+			} 
+			else if ((marks [1] == 1 & hlp4 == 2) | (marks [4] == 1 & hlp4 == 2)) {  
+				marks [1] = 1;marks [4] = 1; marks [7] = 1; clock++; 
+			} 
+			else if ((marks [2] == 1 & hlp5 == 2) | (marks [5] == 1 & hlp5 == 2)) {  
+				marks [2] = 1;marks [5] = 1; marks [8] = 1; clock++;	  
+			}
+			else if ((marks [0] == 1 & hlp6 == 2) | (marks [4] == 1 & hlp6 == 2)) {  
+				marks [0] = 1;marks [4] = 1; marks [8] = 1; clock++; 	  
+			} 
+			else if ((marks [2] == 1 & hlp7 == 2) | (marks [4] == 1 & hlp7 == 2)) {  
+				marks [2] = 1;marks [4] = 1; marks [6] = 1; clock++; 	  
+			} 
+
+		}
+
+	     void loose (){
+			// deklaracja zmiennych pomocniczych
+			int hlp = marks [0] + marks [1] + marks [2]; 
+			int hlp1 = marks [3] + marks [4] + marks [5]; 
+			int hlp2 = marks [6] + marks [7] + marks [8]; 
+			int hlp3 = marks [0] + marks [3] + marks [6]; 
+			int hlp4 = marks [1] + marks [4] + marks [7]; 
+			int hlp5 = marks [2] + marks [5] + marks [8]; 
+			int hlp6 = marks [0] + marks [4] + marks [8]; 
+			int hlp7 = marks [2] + marks [4] + marks [6]; 
+
+			if ((marks [0] == 2 & marks [1] != 1 & hlp == 4) | (marks [1] == 2 & marks [0] != 1 & hlp == 4)) { // 3 linijka
+				for (int i = 0; i < 3;i++) {
+					if(marks[i] == 0){ marks[i] = 1; clock++;} 
+				}
+			}
+			else if ((marks [3] == 2 & marks [4] != 1 & hlp1 == 4) | (marks [4] == 2 & marks [3] != 1 & hlp1 == 4)) { // 2 linijka
+				for (int i = 3; i < 6;i++) {
+					if(marks[i] == 0){ marks[i] = 1; clock++;} 
+				}
+			} 
+			else if ((marks [6] == 2 & marks [7] != 1 & hlp2 == 4) | (marks [7] == 2 & marks [6] != 1 & hlp2 == 4)) { // 1 linijka
+				for (int i = 6; i < 9;i++) {
+					if(marks[i] == 0){ marks[i] = 1; clock++;} 
+				}
+			}
+			else if ((marks [0] == 2 & marks [3] != 1 & hlp3 == 4) | (marks [3] == 2 & marks [0] != 1 & hlp3 == 4)) { // przeciw przegranej
+				for (int i = 0; i < 7; i+=3) {
+					if(marks[i] == 0){ marks[i] = 1; clock++;} 
+				}
+			}
+			else if ((marks [1] == 2 & marks [4] != 1 & hlp4 == 4) | (marks [4] == 2 & marks [1] != 1 & hlp4 == 4)) { // przeciw przegranej
+				for (int i = 1; i < 8;i+=3) {
+					if(marks[i] == 0){ marks[i] = 1; clock++;} 
+				}
+			}
+			else if ((marks [2] == 2 & marks [5] != 1 & hlp5 == 4) | (marks [5] == 2 & marks [2] != 1 & hlp5 == 4)) { // przeciw przegranej
+				for (int i = 2; i < 9;i+=3) {
+					if(marks[i] == 0){ marks[i] = 1; clock++;} 
+				}
+			}
+			else if ((marks [0] == 2 & marks [4] != 1 & hlp6 == 4) | (marks [4] == 2 & marks [0] != 1 & hlp6 == 4)) { // przeciw przegranej
+				for (int i = 0; i < 9;i+=4) {
+					if(marks[i] == 0){ marks[i] = 1; clock++;} 
+				}
+			}
+			else if ((marks [2] == 2 & marks [4] != 1 & hlp7 == 4) | (marks [4] == 2 & marks [2] != 1 & hlp7 == 4)) { // przeciw przegranej
+				for (int i = 2; i < 7;i+=2) {
+					if(marks[i] == 0){ marks[i] = 1; clock++;} 
+				}
+			}
+		}
+		void bot(){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+			int temp, i, ss;
+			Random rand = new Random ();
+			ss = marks [0] + marks [1] + marks [2] + marks [3] + marks [4] + marks [5] + marks [6] + marks [7] + marks [8];//suma wszystkich pól
+
+			                  // akcja bota, gdy gracz postawił na środku w 1 ruchu | akcja bota w 2 ruchu
+			if ((timer == 0 & clock == 0 & marks [4] == 2)|(timer == 1 & clock == 0 & ss == 5)) {        
+				int[] p = { 0, 2, 6, 8 };
+				do{
+				temp = rand.Next (0, 3);
+					i = p [temp];}
+				while (marks[i] != 0);
+				marks [i] = 1;
+				timer++;
+			} 
+			                 //akcja bota, gdy gracz oistawił nie na środku w 1 ruchu
+			else if (timer == 0 & clock == 0 & marks [4] == 0) {
+				marks [4] = 1;
+				timer++;
+			}
+
+				             // randomowa akcja bota	
+			else if(clock == 0) { 
+				do {
+					if(marks[0] != 0 & marks[1] != 0 & marks[2] != 0 & marks[3] != 0 & marks[4] != 0 & marks[5] != 0 & marks[6] != 0
+						& marks[7] != 0 & marks[8] != 0){
+						break; } // przerywa pentle, gdy nie ma pustych pol
+					temp = rand.Next (0, 8);   //wybieranie miejsca 
+					}
+					while (marks [temp] != 0); //jeśli nie jest następuje ponowne wykonanie pętli
+				if(marks[temp] == 0){marks [temp] = 1;}
+			}
+
+		}
+			
+	   void introducing(){
+			Console.Clear ();
+			Console.ForegroundColor = ConsoleColor.DarkRed;
+			Console.WriteLine ("O and X - Witaj w grze ^ ^");
+			Console.ForegroundColor = ConsoleColor.DarkCyan;
+			Console.WriteLine("\nInstrukcja:" +
+			"\n-znak wstawia się za pomocą cyfr, rozmieszczenie planszy odpowiada klawiaturze \n numerycznej," +
+			"\n-nacisnij 0, aby zrestartować grę lub 00, aby powrócić tutaj," +
+			"\n-upewnij się, że masz włączoną klawiaturę numeryczną");
+			Console.ForegroundColor = ConsoleColor.DarkGreen;
+			Console.WriteLine ("\nWpisz:");
+			Console.WriteLine(" '1' - tryb jednoosobowy" +
+				              "\n '2' - tryb dwuosobowy" +
+				              "\n 'exit' - zamykanie okna");
+			ups:
+			string input = Console.ReadLine ();
+			Console.ForegroundColor = ConsoleColor.DarkRed;
+			if (input == "1") {
+				MDD = 1;
+			} else if (input == "2") {
+				MDD = 2;
+			} else if (input == "exit") {
+				Console.Clear ();
+				Console.WriteLine ("See you soon");
+				Environment.Exit (0);
+			} else {
+				Console.WriteLine ("Upss, wprowadzono niedozwolony znak. Spróbój ponownie...");
+				goto ups;
+			}
+			Console.ResetColor ();
+	    }
+
+		void input(){ // wprowadzanie znaków oraz debugowanie błędów związanych z wprowadzaniem
+			restart:
+			string input = Console.ReadLine ();
+			//IF SPRAWDZAJĄCY, CZY WPROWADZONY ZNAK JEST AKCEPTOWALNY
+			if(input == "0" | input == "00" | input == "1" | input == "2" | input == "3" | input == "4" | input == "5" |
+				input == "6" | input == "7" | input == "8" |input == "9"){
+			  int input1 = Convert.ToInt32 (input);                   //konwersja string to int
+				if (input1 == 0) {                                      // restart gry
+					for (int j = 0; j < 9; j++) {
+						marks [j] = 0;
+					}
+					timer = 0;
+					clock = 1;
+					mode = 0;
+					score [0] = 0;
+					score [1] = 0;
+					score [2] = 0;
+					if (input == "00") {
+						introducing ();
+					}
+				
+				} else if (marks [input1 - 1] == 0) {                 // gdy wprowadzona jest dozwolony znak odpowiadający wolnemu 
+					if (MDD == 1 | player == 1) {                     // oraz modyfikacja dla 2 graczy
+						marks [input1 - 1] = 2;
+						player++;
+					} else {
+						marks [input1 - 1] = 1;
+						player--;
+					}
+
+				}
+				else {
+							Console.WriteLine ("To miejsce jest już zajęte :C");
+							goto restart;
+						}
+			      }
+			else{ Console.WriteLine(" Możesz wprowadzać tylko cyfry 0 - 9 oraz 00 !!!!"); //pouczenie o wprowadzaniu tylko cyfr
+				goto restart;}
+		}
+
+		void output(){     //wyświetla plansze i informacje o zwycienswie 
+			string[] output = new string[9];
+			for (int i = 0; i < 9; i++) {                                            //zamiana cyfr na znaki 1/X 2/O
+				if (marks [i] == 1) {
+					output [i] = "X";
+				} else if (marks [i] == 2) {
+					output [i] = "O";
+				} else {
+					output [i] = " ";
+				}
+			}
+			Console.ForegroundColor = ConsoleColor.DarkBlue;
+			Console.WriteLine (" O and X by RWX\n");
+			Console.ForegroundColor = ConsoleColor.DarkYellow;
+			if (MDD == 1) {
+				Console.WriteLine ("Tryb jednoosobowy\n");
+			} else {
+				Console.WriteLine ("Tryb dwuosobowy\n");
+			}
+			Console.ResetColor ();
+			Console.WriteLine (output [6] + " |" + output [7] + " |" + output [8]
+				+"\n--|--|--" + 	"               PLAYER1 | CPU/P2 | REMIS    "
+				+ "\n" + output [3] + " |" + output [4] + " |" + output [5] +
+				"         WYNIK:    " + score[0] +"    |    "+ score[1] +"   |   " + score[2]
+				+"\n--|--|--"
+				+ "\n" + output [0] + " |" + output [1] + " |" + output [2]);
+		}
+		public void statusgry(){
+			status = 0;
+			if ((marks [0] == 2 & marks [1] == 2 & marks [2] == 2)
+			    | (marks [3] == 2 & marks [4] == 2 & marks [5] == 2)
+			    | (marks [6] == 2 & marks [7] == 2 & marks [8] == 2)
+			    | (marks [0] == 2 & marks [3] == 2 & marks [6] == 2)
+			    | (marks [1] == 2 & marks [4] == 2 & marks [7] == 2)
+			    | (marks [2] == 2 & marks [5] == 2 & marks [8] == 2)
+			    | (marks [0] == 2 & marks [4] == 2 & marks [8] == 2)
+			    | (marks [2] == 2 & marks [4] == 2 & marks [6] == 2)) {
+				score [0]++;
+				Console.ForegroundColor = ConsoleColor.Green;
+				if (MDD == 1) {
+					Console.WriteLine ("        WYGRAŁEŚ :C ");
+				} else {
+					Console.WriteLine ("        WYGRAŁ GRACZ NR 1");
+				}
+				Console.ResetColor ();
+				status = 1;
+			} else if ((marks [0] == 1 & marks [1] == 1 & marks [2] == 1)
+			           | (marks [3] == 1 & marks [4] == 1 & marks [5] == 1)
+			           | (marks [6] == 1 & marks [7] == 1 & marks [8] == 1)
+			           | (marks [0] == 1 & marks [3] == 1 & marks [6] == 1)
+			           | (marks [1] == 1 & marks [4] == 1 & marks [7] == 1)
+			           | (marks [2] == 1 & marks [5] == 1 & marks [8] == 1)
+			           | (marks [0] == 1 & marks [4] == 1 & marks [8] == 1)
+			           | (marks [2] == 1 & marks [4] == 1 & marks [6] == 1)) {
+				score [1]++;
+				Console.ForegroundColor = ConsoleColor.Red;
+				if (MDD == 1) {
+					Console.WriteLine ("        PRZEGRAŁEŚ :C ");
+				}
+			    else {
+				Console.WriteLine ("        WYGRAŁ GRACZ NR 2");
+			    }
+				Console.ResetColor ();
+				status = 1;
+			} else if (marks [0] != 0 & marks [1] != 0 & marks [2] != 0 & marks [3] != 0 & marks [4] != 0 & marks [5] != 0 & marks [6] != 0
+			           & marks [7] != 0 & marks [8] != 0) {
+				score [2]++;
+				Console.ForegroundColor = ConsoleColor.Red;
+				Console.WriteLine ("        REMIS  ");
+				Console.ResetColor ();
+				status = 1;
+			}
+			 if (status == 1) {
+				for (int j = 0; j < 9; j++) {marks [j] = 0;}
+				timer = 0;
+				clock = 1;
+				mode = 0;
+				Console.WriteLine ("PRESS ANY KEY TO PLAY NEXT ROUND");
+				Console.ReadKey ();
+			}
+		}
+		public static void Main (string[] args)
+		{
+			Game game1 = new Game ();
+			game1.introducing ();
+			if (game1.MDD == 1) {
+				int clock = 0;
+				start:
+				Console.Clear ();
+				// Naprzemienny początek gry
+				if (game1.mode == 0) {
+					game1.mode++;
+					if (clock == 0) {
+						clock++;
+						game1.bot ();
+					} else {
+						clock--;
+					}
+				}
+				// odniesienia do elementów
+				game1.output ();
+				game1.statusgry ();
+				if (game1.status != 1) {
+					game1.input ();
+				}
+				if (game1.clock == 0) {
+					game1.win ();
+				}
+				if (game1.clock == 0) {
+					game1.loose ();
+				}
+				if (game1.clock == 0) {
+					game1.bot ();
+				}
+				game1.clock = 0;
+				game1.status = 0;
+				goto start;
+			}
+			else {
+				game1.player = 1;
+				start1:
+				Console.Clear ();
+				game1.output ();
+				game1.statusgry ();
+				if (game1.status != 1) {
+					game1.input ();
+				}
+				goto start1;
+			}
+		}
+	}
+}
